@@ -1,0 +1,109 @@
+@startuml
+title 基于GitHub的实验管理平台--类图
+class users {
+    <b>user_autoid</b> 用户ID,自动生成
+    name 用户真实姓名
+    github_username 用户GitHub账号
+    update_date 用户GitHub账号修改日期
+    password 用户密码
+    disable 用户是否禁用
+}
+class teachers{
+    <b>teacher_id</b> 老师工号
+    <I>user_autoid</I> 用户ID
+    department 老师所属部门
+}
+class courses{
+    <b>course_id</b>  课程编号
+    <b>course_name</b>  课程名称
+    department 课程所属部门
+    credit 学分
+    nature 课程性质 考试/考查
+}
+class terms{
+    <b>term_autoid</b> 学期ID
+    start_grade 开始年,如2012表示2012-2013
+    term_num 学期号，只能取1/2，表示上期/下期
+}
+class teachers_courses{
+    <b>teacher_course_autoid</b> 老师课程ID
+    <I>teacher_id</I> 老师工号
+    <I>course_id</I>  课程编号
+    <I>term_autoid</I> 学期ID
+}
+
+class students_courses{
+    <b>student_course_autoid</b> 学生课程ID
+    <I>student_id</I> 学号
+    <I>teacher_course_autoid</I> 老师课程ID
+    result_sum成绩汇总
+    web_sum GitHub网址正确与否汇总
+}
+
+class students{
+    <b>student_id</b> 学号
+    <I>user_autoid</I> 用户ID
+    major 专业
+    grade 年级
+    classnum 班级号
+    department 学生所属部门
+}
+users <|- students
+users <|-- teachers
+
+
+class scores {
+    <b>test_autoid</b> 实验ID
+    <b>student_course_autoid</b> 学生课程ID
+    result 汇总分数
+    update_date 批改日期
+}
+
+class tests {
+    <b>test_autoid</b> 实验ID
+    <I>teacher_course_autoid</I> 老师课程ID
+    test_order   实验编号1..n
+    title 实验名称
+
+}
+
+class tests_subs {
+    <b>test_autoid</b> 实验ID
+    <b>test_sub_order</b> 评分项编号1..n
+    item_name 评分项名称
+    item_describe 评分项标准
+    max_result 评分项的最高分
+}
+
+class scores_subs {
+    <b>test_autoid</b> 实验ID
+    <b>student_course_autoid</b> 学号
+    <b>test_sub_order</b> 评分项编号
+    result 单项分数
+    memo 评价
+}
+
+terms  "1" -- "n"  teachers_courses
+teachers  "1" -- "n"  teachers_courses
+courses  "1" -- "n"  teachers_courses
+
+students "1" -right- "n"  students_courses
+
+teachers_courses  "1" -- "n"  tests
+
+teachers_courses "1" -- "n"  students_courses
+
+tests "1" -- "n"  scores
+tests "1" *-- "n"  tests_subs
+
+scores "1" *-- "n"  scores_subs
+tests_subs "1" -- "n"  scores_subs
+
+students_courses "1" -- "n"  scores
+
+note left of tests : 老师选课后，定义该选课的每个实验
+note left of tests_subs : 定义每个实验的评分项
+note left of teachers_courses : 老师先选课
+note right of students_courses : 老师先选课，学生后选课，\n即在老师选课的基础上才能选课。\nresult_sum是成绩列表字符串，如85,80,90，\n其中85是每平成绩,80,90表示第1次和第2次的成绩。\nweb_sum是网址是否正确的字符串，\n如：Y,N 表示第1个网址正确，第2个网址不正确。
+note right of scores : 实验成绩，其中result是单项实验的汇总成绩，\n由scores_subs汇总上来。
+@enduml

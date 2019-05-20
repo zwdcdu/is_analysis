@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block page_content %}
+    <script>
+        function list(a) {
+            return a.split(',')
+        }
+
+    </script>
+    <table class="table table-bordered">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>GitHub用户</th>
+        {% if user and user.role=='老师' %}
+            {% for i in range(test_count) %}
+            <th>成绩{{ i + 1 }}</th>
+            {% endfor %}
+            <th>平均成绩</th>
+        {% else %}
+            <th>修改日期</th>
+        {% endif %}
+        {# 如果已经登录 #}
+        {% if user.get_id() %}
+        <th>操作</th>
+        {% endif %}
+    </tr>
+        {# id,name,class,github_username,update_date,result_sum,web_sum #}
+        {% for i in students %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                {% set lst_web = my_split(i[6],",") %}
+                <td>
+                    {% if i[3] is not none %}
+                        <a href="https://github.com/{{ i[3] }}/is_analysis" target="_blank" >{{ i[3] }}</a>
+                        {% if lst_web[0]=='N' %}<label class="label-warning">错误</label>{% endif %}
+                    {% endif %}
+                </td>
+
+                {% if user and user.role=='老师' %}
+                    {% set lst = my_split(i[5],",") %}
+                    {% for i in range(test_count) %}
+                        <td> {% if lst[i + 1] != 'N' %}{{ lst[i + 1] }} {% endif %}</td>
+                    {% endfor %}
+                    {# 平均成绩 #}
+                    <td>{% if lst[0] != 'N' %}{{ lst[0] }} {% endif %}</td>
+                {% else %}
+                    <td>{% if i[4] is not none %}{{ i[4] }}{% endif %}</td>
+                {% endif %}
+
+                {# 如果已经登录 #}
+                {% if user.get_id() %}
+                    {% if user.role=='学生' and user.id == i[0] %}
+                        <td><a href="#" onclick="update_userinfo_show()">修改</a></td>
+                    {% elif user.role=='老师' %}
+                        <td><a href="/grading_show/{{ i[0] }}">评定成绩</a></td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                {% endif %}
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

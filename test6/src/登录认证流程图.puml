@@ -1,0 +1,29 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 登录认证流程图
+
+database "前端存储Cookie\nSessionStorage" as 前端存储
+actor Login页面
+actor API服务
+database 数据库存储
+
+== Login登录页面 ==
+数据库存储->数据库存储:预存了每个用户的信息：\n用户名+hash加密的密码
+API服务->API服务:服务程序启动，生成公钥和私钥
+Login页面->API服务:页面事件：mounted()，\nAPI请求:<b>get_public_key_str<b>，获取公钥
+API服务->Login页面:返回公钥：public_key_str
+Login页面->Login页面:用户输入用户名和密码，点击login按钮
+Login页面->Login页面:使用JSEncrypt通过公钥加密输入的密码
+Login页面->API服务:API请求:<b>login</b>,参数是用户名和公钥加密密码
+API服务->API服务:使用RSA根据私钥解密收到的加密密码，得到用户密码
+API服务->数据库存储:从数据库取出用户名以及hash密码
+数据库存储->API服务:返回该用户的hash密码
+API服务->API服务:调用check_password_hash(hash密码,用户密码)
+API服务->前端存储:调用login_user(),\n将用户的ID值写到Cookies['session']中\n并设置失效时间
+API服务->Login页面:返回成功信息
+== 用户登录后正常使用，\n每次请求浏览器都会自动将\nCookies['session']传给API服务解析，\n让API服务知道是哪个用户的请求==
+
+@enduml

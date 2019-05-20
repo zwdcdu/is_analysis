@@ -1,0 +1,7 @@
+@startuml
+title 基于GitHub的实验管理平台--查看成绩用例的顺序图
+actor students
+students -> grades: 查看成绩和评语
+grades -> tests
+tests --> students:每个实验的信息、成绩和评语
+@enduml

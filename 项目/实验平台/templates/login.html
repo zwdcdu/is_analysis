@@ -1,0 +1,106 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}登录{% endblock %} <!--覆盖title标签-->
+{% block navbar %}
+<nav class="navbar navbar-inverse"><!-- 导航部分 -->
+<a class="navbar-brand" href="/"  target="_blank" >Home</a>
+</nav>
+{% endblock %}
+{%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+{%- endblock metas %}
+
+{% block scripts %}
+    <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+    <script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+    <script src="{{ url_for('static', filename='js/jsencrypt.js')}}"></script>
+    <script language="JavaScript">
+    function showMessage(msg){
+        $("#messagediv").attr("class","alert alert-success alert-dismissable show");
+        //$("#messagediv").show(); 如果因为手工点击关闭按钮后关闭的,控件被彻底移出页面,因此show()不起作用
+        $("#message").html(msg);
+    }
+    function login() {
+        //实例化一个JSEncrypt对象
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey($("#public_key_str").val());
+        var encrypt_password = encrypt.encrypt($("#password").val());
+        if (encrypt_password == false){
+          console.log('公钥不正确。');
+          showMessage('公钥不正确。');
+          return;
+        }
+        var formData=new FormData();
+        formData.append('user_id',$("#user_id").val());//向表单数据里加数据
+        formData.append('user_role',$("input[name='user_role']:checked").val());
+        formData.append('encrypt_password',encrypt_password);//向表单数据里加额外数据
+        //ajax提交
+        $.ajax({
+            url: "/login",
+            type: "POST",
+            data: formData,
+            cache: false,
+            processData: false,  // 不处理数据，这很重要。因为data值是FormData对象，不需要对数据做处理。
+            contentType: false,   // 不设置内容类型,因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="multipart/form-data"，所以这里设置为false。
+            success: function (data) {
+                if(data){
+                    showMessage(data);
+                }
+                else
+                    window.location.href = "/";
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+                showMessage("未知错误");
+            }
+        });
+    }
+    </script>
+{%- endblock scripts %}
+
+{% block content %} <!--具体内容-->
+<div class="container">
+<div class="container center-block">
+ <form method="post" id="form" enctype="multipart/form-data">
+     <div id="messagediv" class="alert alert-success alert-dismissable hide">
+        <button type="button" class="close" data-dismiss="alert" id="messageBtn"
+                aria-hidden="true">
+            &times;
+        </button>
+        <label id="message"></label>
+    </div>
+     <!--下面2行(必须是两行一起)为了隐藏360自动填充用户名和密码表单-->
+    <input type="text" name="text_login1"  style="display:none"/>
+    <input type="password" name="password_login1"  style="display:none"/>
+     {% if user.id %}
+     <h2>用户({{ user.id }},{{ user.name }})已经登录</h2>
+     {% else %}
+     <h2>欢迎您登录</h2>
+         <div class="form-group">
+     <textarea id=public_key_str style="display:none">{{ public_key_str }}</textarea>
+     <div class="form-group" >
+        <div class="input-group">
+            <span class="input-group-addon">学号:</span>
+            <input type="text" id=user_id class="form-control" placeholder="学号">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码:</span>
+            <input type="password" id=password class="form-control" placeholder="密码,默认等于学号">
+        </div>
+         <p> <input type="radio" name=user_role checked value="学生">学生
+            <input type="radio" name=user_role value="老师">老师</p>
+         <!--
+        <p><input type=submit value=登录></p>
+        -->
+         <input type="button" value=登录 onclick="login()">
+     </div>
+         </div>
+     {% endif %}
+ </form>
+ </div>
+ </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+@startuml
+title 成都市第二人民医院双向转诊流程
+scale 1
+skinparam activity {
+  StartColor red
+  BarColor SaddleBrown
+  EndColor Silver
+  BackgroundColor Peru
+  BackgroundColor<< Begin >> Olive
+  BorderColor Peru
+  FontName 黑体
+}
+
+"转诊患者" -->[持转诊单] ===B1===
+--> "急诊"
+--> "急诊诊断室"
+--> [填写双向转诊\n信息模块]临床科室
+===B1=== --> 住院
+-->"病员服务部"
+-->[预约床位]临床科室
+-->[填写双向转诊\n信息模块]治疗
+-->===D1===
+-down->"治愈 "
+===D1=== -->"康复及健康管理 "
+-->[打印住院转诊单\n（到结账处盖章）]"转基层医疗机构 " #CCCCEE
+
+===B1=== --> 门诊
+-->"病员服务部"
+-->[信息录入、分流]门诊诊断室
+-->[填写双向转诊\n信息模块]"治疗 "
+    -->===C1===
+    -down->治愈
+    ===C1===-down->"入院 "
+    -left->临床科室
+    ===C1=== -down->"康复及健康管理"
+    -down->[打印门诊转诊单\n（到病员服务部盖章）]转基层医疗机构 #CCCCEE
+
+
+@enduml

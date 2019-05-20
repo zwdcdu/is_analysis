@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}学生成绩{% endblock %}
+
+{% block page_content %}
+    <!--下标参考: student_id,test_id,result,memo,update_date,name,class,title,github_username,web_sum,result_sum -->
+    <h3>
+        <span class="label label-primary">学生:{{ tests[0][0] }},{{ tests[0][6] }},{{ tests[0][5] }}</span>
+        <span class="label label-info">平均成绩:{{ my_split(tests[0][10])[0] }}</span>
+        {% if user.role == '老师' %}
+            <button type="submit" class="btn btn-default form-inline" onclick="test_commit_all({{ tests[0][0] }})">全部提交</button>
+            <button type="submit" class="btn btn-default form-inline" onclick="get_prev_student({{ tests[0][0] }})">上一个</button>
+            <button type="submit" class="btn btn-default form-inline" onclick="get_next_student({{ tests[0][0] }})">下一个</button>
+        {% endif %}
+    </h3>
+    <table id="TABLE1" class="table table-bordered">
+        {% for i in tests %}
+            {% set lst_web = my_split(i[9]) %}
+            {%  if loop.index %2==1 %}
+                <tr>
+            {% endif %}
+                    <td>
+                        <h4>
+                            <span class="label label-success">实验{{ i[1] }}:{{ i[7] }}</span>
+                            <a href="https://github.com/{{ i[8] }}/is_analysis/tree/master/test{{ i[1] }}" target="_blank" > >> </a>
+                                {% if lst_web[i[1]]=='N' %}
+                                    <span class="label label-warning">地址错误</span>
+                                {% endif %}
+
+                        </h4>
+                        <div class="input-group">
+                            <span class="input-group-addon">分数:</span>
+                            <input type="text" id="result{{ i[1] }}"class="form-control" placeholder="输入分数" {% if i[2] is not none %}value={{ i[2] }}{% endif %}>
+                            <span class="input-group-addon">分</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">评价:</span>
+                            <textarea id="memo{{ i[1] }}" class="form-control" placeholder="输入评价">{% if i[3] is not none %}{{ i[3] }}{% endif %}</textarea>
+                        </div>
+                        <div class="form-inline">
+                            {% if user.role == '老师' %}
+                                <button type="submit" class="btn btn-default form-inline" onclick="test_commit({{ tests[0][0] }},{{ i[1] }})">提交</button>
+                            {% endif %}
+                        <label class="label label-default" >{% if i[4] is not none %}批改日期:{{ i[4] }}{% endif %}</label>
+                        </div>
+                    </td>
+            {%  if loop.index %2==0 or loop.last%}
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

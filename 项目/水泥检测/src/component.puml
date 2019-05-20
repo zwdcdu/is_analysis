@@ -1,0 +1,25 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 系统领域图
+
+frame "通用域" as Common #Green {
+    [基础数据管理] as F01
+    [用户管理] as F02
+ }
+frame "核心域" as Core #Plum {
+    [检验报告管理] as F03
+    [统计报表导出] as F04
+}
+frame "支撑域" as Support #White {
+     [消息提醒] as F05
+     [分析报告共享] as F06
+}
+F03 --> F01:依赖于
+F04 --> F01:依赖于
+F05 --> F03:依赖于
+F05 --> F04:依赖于
+
+@enduml

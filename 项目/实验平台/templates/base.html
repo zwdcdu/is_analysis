@@ -1,0 +1,364 @@
+{% extends "bootstrap/base.html" %} <!-- base.html模板继承自bootstrap/base.html -->
+{% block title %}Flask{% endblock %}
+{%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+{%- endblock metas %}
+{% block scripts %}
+    <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+    <script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+    <script src="{{ url_for('static', filename='js/my_confirm.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jsencrypt.js')}}"></script>
+    <script>
+        function showMessage(data) {
+        window.console && console.log(data)
+    }
+    function getOneTest(test_id){
+        result=$("#result"+test_id).val();
+        memo=$("#memo"+test_id).val();
+        var a={"test_id":test_id,"result":result,"memo":memo};
+        return a;
+    }
+    function do_ajax(student_id,tests){
+        var obj = {"student_id":student_id,"tests":tests}
+        $.ajax({
+            url: "/grading_update",
+            type: "POST",
+            data: JSON.stringify(obj),
+            async:true, // true 异步 , false:同步
+            contentType : "application/json",
+            dataType : "text", // 这里不能是'json',否则一直会执行error:function ...,无法执行success
+            success: function (data) {
+                if(data){
+                    showMessage(data);
+                }
+                else {
+                    showMessage("成功,student_id=" + student_id);
+                    window.location.href = "/grading_show/" + student_id;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                showMessage(XMLHttpRequest.status);
+                showMessage(XMLHttpRequest.readyState);
+                showMessage(textStatus);
+                showMessage(errorThrown)
+                showMessage("未知错误,student_id="+student_id);
+            }
+        });
+    }
+    function test_commit_all(student_id) {
+        var arr = [];
+        $("#TABLE1 :input").each(function(i, item) {
+            str = item.id;
+            var index = str.indexOf('result');
+            if (index == 0 ){ //以result开头
+                var test_id = str.replace('result','')
+                arr.push(getOneTest(test_id));
+            }
+        });
+        do_ajax(student_id,arr);
+    }
+    function test_commit(student_id,test_id) {
+        var arr = [];
+        arr.push(getOneTest(test_id));
+        do_ajax(student_id,arr);
+    }
+    function get_prev_student(student_id) {
+        var obj = {"student_id":student_id}
+        $.ajax({
+            url: "/get_prev_student/"+student_id,
+            type: "GET",
+
+            success: function (data) {
+                if(data.success){
+                    showMessage("get_prev_student成功,student_id=" + student_id);
+                    window.location.href = "/grading_show/" + data.student_id;
+                }
+                else {
+                    showMessage(data.reason);
+                    alert(data.reason);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                showMessage(XMLHttpRequest.status);
+                showMessage(XMLHttpRequest.readyState);
+                showMessage(textStatus);
+                showMessage(errorThrown)
+                showMessage("get_prev_student未知错误,student_id="+student_id);
+            }
+        });
+    }
+    function get_next_student(student_id) {
+        var obj = {"student_id":student_id}
+        $.ajax({
+            url: "/get_next_student/"+student_id,
+            type: "GET",
+
+            success: function (data) {
+                if(data.success){
+                    showMessage("get_next_student成功,student_id=" + student_id);
+                    window.location.href = "/grading_show/" + data.student_id;
+                }
+                else {
+                    showMessage(data.reason);
+                    alert(data.reason);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                showMessage(XMLHttpRequest.status);
+                showMessage(XMLHttpRequest.readyState);
+                showMessage(textStatus);
+                showMessage(errorThrown)
+                showMessage("get_next_student未知错误,student_id="+student_id);
+            }
+        });
+    }
+    function update_userinfo_show() {
+        $("#myModalLabel").text("修改用户信息");
+        $('#myModal').modal();
+    }
+    function update_userinfo() {
+        var formData=new FormData();
+        formData.append('GitHubUserName',$("#GitHubUserName").val());//向表单数据里加数据
+        //alert($("#GitHubUserName").val());
+        $.ajax({
+            type: "POST",
+            url: "/update_github_user",
+            data: formData,
+            processData: false,  // 不处理数据
+            contentType: false,   // 不设置内容类型
+            success: function (data) {
+                if(data){
+                    showMessage(data);
+                }
+                else
+                    window.location.href = "/";
+            },
+            error: function () {
+                showMessage("未知错误");
+            }
+        });
+    }
+    function update_password_show() {
+        $("#passwordModalLabel").text("修改密码");
+        $('#passwordModal').modal();
+    }
+    function userinfo_show() {
+        $('#userinfoModal').modal();
+    }
+    function update_password() {
+        password1=$("#password1").val();
+        password2=$("#password2").val();
+        if (password1=='' || password2 == ''){
+            alert('密码不能为空');
+            return;
+        }
+        if (password1 != password2){
+            alert('密码不致');
+            return;
+        }
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey($("#public_key_str").val());
+        var encrypt_password = encrypt.encrypt(password1);
+        if (encrypt_password == false){
+          console.log('公钥不正确。');
+          showMessage('公钥不正确。');
+          return;
+        }
+        var formData=new FormData();
+        formData.append('encrypt_password',encrypt_password);//向表单数据里加数据
+        $.ajax({
+            type: "POST",
+            url: "/update_password",
+            data: formData,
+            processData: false,  // 不处理数据
+            contentType: false,   // 不设置内容类型
+            success: function (data) {
+                if(data){
+                    showMessage(data);
+                }
+                else
+                    window.location.href = "/";
+            },
+            error: function () {
+                showMessage("未知错误");
+            }
+        });
+    }
+    function logout() {
+        Ewin.confirm({message: "确认要登出吗？"}).on(function (e) {
+            if (!e) {
+                return;
+            }
+            $.ajax({
+                type: "get",
+                url: "/logout",
+                success: function (data, status) {
+                    if(data){
+                        console.log(data);
+                    }
+                    else
+                        window.location.href = "/";
+                },
+                error: function () {
+                    console.log("logout error");
+                },
+                complete: function () {
+                }
+            });
+        });
+    }
+    </script>
+{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+    <a class="navbar-brand" href="https://github.com/zwdbox/is_analysis"  target="_blank" >信息系统分析与设计 GitHUB</a>
+    <a class="navbar-brand" href="/"  target="_blank" >首页</a>
+</div>
+<div class="navbar-nav">
+
+</div>
+<div class="navbar-right">
+    {% if user.id == null %}
+        <ul class="nav navbar-nav">
+            <li><a href="/login">登录</a></li>
+		</ul>
+    {% else %}
+        <ul class="nav navbar-nav">
+            {% if user.role == '学生' %}
+                {% set rt=my_split(user.result_sum) %}
+			    <li><a href="/grading_show/{{ user.id }}">个人成绩:{{ rt[0] }}</a></li>
+            {% endif %}
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					{{ user.name }}
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+                    <li><a href="#" onclick="userinfo_show()" >用户信息</a></li>
+                    <li><a href="#" onclick="update_userinfo_show()">修改用户信息</a></li>
+                    <li><a href="#" onclick="update_password_show()">修改密码</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" onclick="logout()">登出</a></li>
+				</ul>
+			</li>
+		</ul>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <textarea id=public_key_str style="display:none">{{ public_key_str }}</textarea>
+    <!--下面2行(必须是两行一起)为了隐藏360自动填充用户名和密码表单-->
+    <input type="text" name="text_11222"  style="display:none"/>
+    <input type="password" name="password_1233"  style="display:none"/>
+    <!-- 修改GitHUB用户名的弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+
+                <div class="modal-body ">
+                     {% if user.id %}
+                         <!--下面为了隐藏360自动填充用户名和密码表单-->　
+                         <label for="stu_id" class="label-success">学号:{{ user.id }} 姓名:{{ user.name }}</label>
+                         <div class="input-group">
+                             <span class="input-group-addon">GitHub用户名:</span>
+                             <input type="text" id=GitHubUserName class="form-control" placeholder="请输入GitHub用户名" {% if user.github_username is not none %}value={{ user.github_username }}{% endif %}>
+                        </div>
+                     {%  else %}
+                        <h2>学号{{ user.id }}不存在</h2>
+                     {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal" onclick="update_userinfo()">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改密码的弹出框 -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="passwordModalLabel">修改</h4>
+                </div>
+
+                <div class="modal-body ">
+                     {% if user.id %}
+                         <label for="stu_id">学号:{{ user.id }} 姓名:{{ user.name }}</label>
+                         <input type="password" class="form-control" id=password1 autocomplete="off" placeholder="请输入密码" value="">
+                         <input type="password" class="form-control" id=password2 autocomplete="off" placeholder="请输入密码" value="">
+                     {%  else %}
+                        <h2>学号{{ user.id }}不存在</h2>
+                     {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button type="button" id="btn_submit2" class="btn btn-primary" data-dismiss="modal" onclick="update_password()">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 查询个人信息的弹出框 -->
+    <div class="modal fade" id="userinfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="passwordModalLabel">用户信息</h4>
+                </div>
+
+                <div class="modal-body ">
+                     {% if user.id %}
+                         <table class="table table-bordered">
+                             <tr>
+                                 <td>学号:</td>
+                                 <td>{{ user.id }}</td>
+                             </tr>
+                             <tr>
+                                 <td>姓名:</td>
+                                 <td>{{ user.name }}</td>
+                             </tr>
+                             <tr>
+                                 <td>班级:</td>
+                                 <td>{{ user.class_ }}</td>
+                             </tr>
+                             <tr>
+                                 <td>GitHub账号:</td>
+                                 <td>{% if user.github_username is not none %}{{ user.github_username }}{% endif %}</td>
+                             </tr>
+                             <tr>
+                                 <td>类型:</td>
+                                 <td>{{ user.role }}</td>
+                             </tr>
+                         </table>
+                     {%  else %}
+                        <h2>学号{{ user.id }}不存在</h2>
+                     {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+{% block page_content %}{% endblock %}
+</div>
+{% endblock %}
