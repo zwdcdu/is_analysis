@@ -1,9 +1,8 @@
 <!-- markdownlint-disable MD033-->
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
-# 《信息系统分析与设计》每次实验优秀再学列表
+# 《信息系统分析与设计》历次实验优秀学生列表
 
-![book](book.jpg)
 - ### [实验1：业务流程建模](./test1.md)
     |学号|姓名|班级|成绩|
     |---|---|---|---|
