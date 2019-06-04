@@ -277,7 +277,6 @@
     |201610414327|杨一鸣|软件(本)16-3|90|
     |201610414409|方琦|软件(本)16-4|94|
     |201610414414|穆峥言|软件(本)16-4|91|
-    
         
 ## 搭建文档编写环境：
 - 编辑器: IntelliJ IDEA
@@ -285,7 +284,9 @@
 - 单独安装: git 和 graphviz
 
 ## 参考资料
-- 绘制方法参考[PlantUML标准](http://plantuml.com)
+- 绘制方法参考：[PlantUML标准](http://plantuml.com)
+- PlantUML服务: http://plantuml.com/zh/server
+- plantuml在线编辑器： http://www.plantuml.com/plantuml
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdbox/is_analysis
 - Git简书 https://git-scm.com/book/zh/v2
@@ -295,7 +296,12 @@
 - [GitWindows客户端](./gitgfb_ttrar.rar)
 - 版本控制样例参见：https://github.com/oracle/db-sample-schemas
 - 文档编写工具 Sphinx 使用手册 https://of.gugud.com/t/topic/185 https://zh-sphinx-doc.readthedocs.io/en/latest/contents.html
-##团队协作样例图：
+
+## github在线显示plantuml图片
+- 使用标准的**![](地址)**方式，地址格式是： http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://zwdcdu.github.io/a.github.io/fig2.puml
+    - cache=no表示不缓存，列容易适应文件的变化
+    - fmt=svg表示以svg方式显示图形，这个很重要，否则汉字会显示为不同的字体。
+    - https://zwdcdu.github.io/a.github.io/fig2.puml表示plantuml源码，可以是任何地址，只要返回plantuml源代码即可。
 
 ## git示例
 ### 克隆test资料库，如果test是私有项目，需要输入密码，clone完成后，会生成一个新的目录test
