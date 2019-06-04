@@ -298,7 +298,7 @@
 - 文档编写工具 Sphinx 使用手册 https://of.gugud.com/t/topic/185 https://zh-sphinx-doc.readthedocs.io/en/latest/contents.html
 
 ## github在线显示plantuml图片
-- 使用标准的**![](地址)**方式，地址格式是： http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://zwdcdu.github.io/a.github.io/fig2.puml
+- 使用标准的"\!\[\](地址)"方式显示plantuml图片，地址格式是： http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://zwdcdu.github.io/a.github.io/fig2.puml
     - cache=no表示不缓存，列容易适应文件的变化
     - fmt=svg表示以svg方式显示图形，这个很重要，否则汉字会显示为不同的字体。
     - https://zwdcdu.github.io/a.github.io/fig2.puml表示plantuml源码，可以是任何地址，只要返回plantuml源代码即可。
