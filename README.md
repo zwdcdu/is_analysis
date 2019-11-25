@@ -237,8 +237,8 @@
               
 ## 实验6：期末考查说明
 - 参见[期末考核要求](./test6.md)
-- 老师的分析与设计：https://github.com/zwdbox/is_analysis/tree/master/test6
-- 老师的源码: https://github.com/zwdbox/is_analysis/tree/master/项目/实验平台
+- 老师的分析与设计：https://github.com/zwdcdu/is_analysis/tree/master/test6
+- 老师的源码: https://github.com/zwdcdu/is_analysis/tree/master/项目/实验平台
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test6
  查看你编写的实验文档。其中zhang是你的gitHub用户名。
 
@@ -254,11 +254,11 @@
 - 电子文档提交地址：https://github.com/你的gitHub用户名/is_analysis/tree/master/test6
 
 - 期末考试要求及老师的文档参见：
-    https://github.com/zwdbox/is_analysis/blob/master/test6.md
+    https://github.com/zwdcdu/is_analysis/blob/master/test6.md
     
     和
     
-    https://github.com/zwdbox/is_analysis/tree/master/test6
+    https://github.com/zwdcdu/is_analysis/tree/master/test6
     
     - 本实验比较优秀(90分以上)的同学如下： 
       	      
@@ -288,7 +288,7 @@
 - PlantUML服务: http://plantuml.com/zh/server
 - plantuml在线编辑器： http://www.plantuml.com/plantuml
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
-- 老师的教学资源：https://github.com/zwdbox/is_analysis
+- 老师的教学资源：https://github.com/zwdcdu/is_analysis
 - Git简书 https://git-scm.com/book/zh/v2
 - Git分支 https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF
 - Github 简明教程-操作标签 https://www.cnblogs.com/tracylxy/p/6439089.html

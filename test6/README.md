@@ -21,7 +21,7 @@
 ## 2. 系统总体结构
 ![](系统总体结构.png)
 
-界面设计参见：https://zwdbox.github.io/is_analysis/test6/ui/index.html
+界面设计参见：https://zwdcdu.github.io/is_analysis/test6/ui/index.html
     
 ## 3. 用例图设计 [源码](src/UseCase.puml)
 ![](UseCase.png)
@@ -33,12 +33,12 @@
 - ### [参见数据库设计](./数据库设计.md)
 
 ## 6. 用例及界面详细设计
-- ### [“学生列表”用例](./用例/学生列表.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/index.html)
-- ### [“评定成绩”用例](./用例/评定成绩.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/评定成绩.html)
-- ### [“查看成绩”用例](./用例/查看成绩.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/查看成绩.html)
-- ### [“修改密码”用例](./用例/修改密码.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/顶部菜单.html)
-- ### [“修改用户信息”用例](./用例/修改用户信息.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/顶部菜单.html)
-- ### [“查看用户信息”用例](./用例/查看用户信息.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/顶部菜单.html)
-- ### [“登出”用例](./用例/登出.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/顶部菜单.html)
-- ### [“登录”用例](./用例/登录.md),[界面](https://zwdbox.github.io/is_analysis/test6/ui/登录.html)
+- ### [“学生列表”用例](./用例/学生列表.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/index.html)
+- ### [“评定成绩”用例](./用例/评定成绩.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/评定成绩.html)
+- ### [“查看成绩”用例](./用例/查看成绩.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/查看成绩.html)
+- ### [“修改密码”用例](./用例/修改密码.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“修改用户信息”用例](./用例/修改用户信息.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“查看用户信息”用例](./用例/查看用户信息.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“登出”用例](./用例/登出.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“登录”用例](./用例/登录.md),[界面](https://zwdcdu.github.io/is_analysis/test6/ui/登录.html)
     

@@ -50,5 +50,5 @@ object2.png
 - 类图的绘制方法参考[PlantUML标准](http://plantuml.com/class-diagram)文件的class-diagram标准
 - 对象图的绘制方法参考[PlantUML标准](http://plantuml.com/object-diagram)文件的object-diagram标准
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
-- 老师的教学资源：https://github.com/zwdbox/is_analysis
-- 老师以同学身份做的<b>伪实验3</b>参考：https://github.com/zwdbox/is_analysis/tree/master/test3
+- 老师的教学资源：https://github.com/zwdcdu/is_analysis
+- 老师以同学身份做的<b>伪实验3</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test3

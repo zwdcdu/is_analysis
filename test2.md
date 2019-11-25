@@ -39,5 +39,5 @@ usecase3_flow.jpg
 
 - 绘制方法参考[PlantUML标准](http://plantuml.com/use-case-diagram)文件的usecase标准
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
-- 老师的教学资源：https://github.com/zwdbox/is_analysis
-- 老师以同学身份做的<b>伪实验2</b>参考：https://github.com/zwdbox/is_analysis/tree/master/test2
+- 老师的教学资源：https://github.com/zwdcdu/is_analysis
+- 老师以同学身份做的<b>伪实验2</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test2
