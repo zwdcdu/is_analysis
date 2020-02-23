@@ -308,7 +308,8 @@
 ```
 git clone https://github.com/你的github用户名/test.git
 ```
-clone操作应该只做一次，会下载项目资料库中的所有文件、分支和标签，并新建一个.git隐藏目录，使本机和远程仓库建立关联。clone之后可以使用git pull下载修改文件。
+clone操作应该只做一次，会下载项目资料库中的所有文件、分支和标签，并新建一个.git隐藏目录，使本机和远程仓库建立关联。
+clone之后可以使用git pull下载修改文件。
 
 ### 配置test目录
 ```
