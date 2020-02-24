@@ -31,7 +31,6 @@ flow2.jpg
 - 请在2019-03-27之前提交，过时扣分。
 
 <b>参考</b>
-- [教材下载](./信息系统分析与设计(第4版).pdf)
 - 绘制方法参考[PlantUML标准](http://plantuml.com/activity-diagram-beta)文件的活动图(新语法)Activity Diagram (beta)
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis

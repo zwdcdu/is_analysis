@@ -28,6 +28,7 @@
 - 单独安装: git 和 graphviz
 
 ## 参考资料
+- [教材下载](./信息系统分析与设计(第4版).pdf)
 - 绘制方法参考：[PlantUML标准](http://plantuml.com)
 - PlantUML服务: http://plantuml.com/zh/server
 - plantuml在线编辑器： http://www.plantuml.com/plantuml
