@@ -28,7 +28,7 @@ flow2.jpg
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test1
 查看你编写的实验文档。其中zhang是你的gitHub用户名。
 
-- 请在2019-03-27之前提交，过时扣分。
+- 请在2020-03-10之前提交，过时扣分。
 
 <b>参考</b>
 - 绘制方法参考[PlantUML标准](http://plantuml.com/activity-diagram-beta)文件的活动图(新语法)Activity Diagram (beta)

@@ -27,7 +27,7 @@
 
 - 创建一个公有资料库**is_analysis_pages**,在其中存入UI设计的Html文件，通过超链接访问这些文件。
 
-- RESTFul API应该符合界面的设计。一个界面可以包含多个API接口。
+- RESTFUl API应该符合界面的设计。一个界面可以包含多个API接口。
 
 <b>实验提交</b>
 
@@ -43,7 +43,7 @@ pic1.png
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test5
 查看你编写的实验文档。其中zhang是你的gitHub用户名。
 
-- 请在2019-04-24之前提交，过时扣分。
+- 请在2020-04-24之前提交，过时扣分。
 
 <b>参考</b>
 
