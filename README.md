@@ -80,4 +80,3 @@ cat a.c
 ```
 
 ![book](./git_team.png)
-z
