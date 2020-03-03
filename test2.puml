@@ -1,0 +1,10 @@
+@startuml
+(*)  --> "刷卡"
+If "input is verbose" then
+--> [是] "turn on verbosity"
+-->  "run command"
+else
+--> [否] "run command"
+Endif
+-->(*)
+@enduml
