@@ -31,10 +31,11 @@
 ## 参考资料
 - [教材下载](./信息系统分析与设计(第4版).pdf)
 - 绘制方法参考：[PlantUML标准](http://plantuml.com)
+- [PlantUML GitHub 官方网站](https://github.com/plantuml/plantuml)
 - PlantUML服务: http://plantuml.com/zh/server
 - plantuml在线编辑器： http://www.plantuml.com/plantuml
-- Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
-- 老师的教学资源：https://github.com/zwdcdu/is_analysis
+- Markdown格式参考： https://www.jianshu.com/p/b03a8d7b1719
+- 老师的教学资源： https://github.com/zwdcdu/is_analysis
 - Git简书 https://git-scm.com/book/zh/v2
 - Git分支 https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF
 - Github 简明教程-操作标签 https://www.cnblogs.com/tracylxy/p/6439089.html
