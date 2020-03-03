@@ -37,5 +37,3 @@ flow2.jpg
 - 老师以同学身份做的<b>伪实验1</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test1
 - Page107图6.1 ![Page107图6.1](Page107图.jpg)
 - Page108图6.2 ![Page108图6.2](Page108图.jpg)
-- TEST ![Test](test.png)
-- TEST2 ![Test2](test2.png)
