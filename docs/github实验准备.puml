@@ -1,0 +1,8 @@
+@startuml
+老师 -> GitHub: 申请账号
+学生 -> GitHub: 申请账号
+老师 -> TeacherRepo: 创建公共仓库TeacherRepo
+学生 -> StudentRepo: 创建私有仓库StudentRepo
+学生 -> 老师: 发出成为StudentRepo的合作者的申请邮件
+老师 -> StudentRepo: 同意申请,成为StudentRepo的合作者（批量）
+@enduml

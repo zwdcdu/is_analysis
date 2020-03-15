@@ -1,0 +1,11 @@
+@startuml
+老师 -> TeacherRepo: 上传课程及实验资料到
+学生 -> TeacherRepo: Fork老师的TeacherRepo（可选）
+学生 -> 学生: 完成实验(线下)
+学生 -> StudentRepo: push实验结果
+StudentRepo ->老师 : git clone 学生实验结果（批量）
+老师 -> 老师: 批改学生实验（线下）
+老师 -> StudentRepo: push批改结果到StudentRepo（批量）
+学生 -> StudentRepo: 查看老师批阅痕迹
+StudentRepo ->学生:pull实验结果
+@enduml
