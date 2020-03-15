@@ -1,9 +1,0 @@
-@startuml
-title Servlet Container
-start
-if (是新客户吗?) then (是)
-:登记客户信息;
-endif
-:上门勘察;
-end
-@enduml
