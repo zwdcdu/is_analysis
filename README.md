@@ -76,6 +76,7 @@ git push
 ```
 
 ### 在网上修改文件a.c,然后pull到本机
+
 ```
 git pull
 cat a.c
