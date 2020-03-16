@@ -82,3 +82,5 @@ cat a.c
 ```
 
 ![book](./git_team.png)
+
+![SVG图片测试](./检验报告.svg)
