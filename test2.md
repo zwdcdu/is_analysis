@@ -6,7 +6,7 @@
 - 本实验的目的是理解用例(Use Case)的意义和作用，并能用PlantUML工具绘制用例图。
 - 仔细阅读并理解第7章用例建模。
 - 以教材中<b>图书管理系统</b>的用例为基础，根据自己的理解，再增加或者修改一些参与者(actor)和用例(usecase)，设计一套比较完整的图书管理系统的全部用例。
-- <b>用PlantUML标准工具画出图书管理系统整体的用例关系图(Page143图7.6)，并写出每个用例的规约表（Page147表7.5）。</b>
+- <b>用PlantUML标准工具画出图书管理系统整体的用例关系图(Page143图7.3)，并写出每个用例的规约表（Page147表7.5）。</b>
 - 整个文档要汇总到README.md文本文件中进行说明，说明文件用Markdown格式编写。
 
 <b>注意事项</b>
@@ -41,3 +41,4 @@ usecase3_flow.jpg
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis
 - 老师以同学身份做的<b>伪实验2</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test2
+- ![图7.3](./test2.jpg)
