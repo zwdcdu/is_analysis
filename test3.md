@@ -43,7 +43,7 @@ object2.png
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test3
 查看你编写的实验文档。其中zhang是你的gitHub用户名。
 
-- 请在2020-04-10之前提交，过时扣分。
+- 请在2020-04-6之前提交，过时扣分。
 
 <b>参考</b>
 
@@ -52,3 +52,5 @@ object2.png
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis
 - 老师以同学身份做的<b>伪实验3</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test3
+- [Page170图8.17](./Page170图.jpg)
+- [Page172图8.20](./Page172图.jpg)
