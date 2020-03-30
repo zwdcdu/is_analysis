@@ -52,5 +52,5 @@ object2.png
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis
 - 老师以同学身份做的<b>伪实验3</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test3
-- [Page170图8.17](./Page170图.jpg)
-- [Page172图8.20](./Page172图.jpg)
+- ![Page170图8.17](./Page170图.jpg)
+- ![Page172图8.20](./Page172图.jpg)
