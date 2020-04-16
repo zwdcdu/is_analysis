@@ -43,7 +43,7 @@
 - [GitWindows客户端](./gitgfb_ttrar.rar)
 - 版本控制样例参见：https://github.com/oracle/db-sample-schemas
 - 文档编写工具 Sphinx 使用手册 https://of.gugud.com/t/topic/185 https://zh-sphinx-doc.readthedocs.io/en/latest/contents.html
-
+- [GitHub开发者接口V3](https://developer.github.com/v3/)
 ## github在线显示plantuml图片
 - 使用标准的"\!\[\](地址)"方式显示plantuml图片，地址格式是： http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://zwdcdu.github.io/a.github.io/fig2.puml
     - cache=no表示不缓存，列容易适应文件的变化

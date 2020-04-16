@@ -1,4 +1,5 @@
 @startuml
+actor 老师
 老师 -> GitHub: 申请账号
 学生 -> GitHub: 申请账号
 老师 -> TeacherRepo: 创建公共仓库TeacherRepo

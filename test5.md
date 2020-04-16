@@ -43,7 +43,7 @@ pic1.png
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test5
 查看你编写的实验文档。其中zhang是你的gitHub用户名。
 
-- 请在2020-04-24之前提交，过时扣分。
+- 请在2020-04-27之前提交，过时扣分。
 
 <b>参考</b>
 

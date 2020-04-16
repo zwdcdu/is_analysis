@@ -1,4 +1,5 @@
 @startuml
+actor 老师
 老师 -> TeacherRepo: 上传课程及实验资料到
 学生 -> TeacherRepo: Fork老师的TeacherRepo（可选）
 学生 -> 学生: 完成实验(线下)
