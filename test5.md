@@ -32,7 +32,6 @@
     - 或者https://你的用户名.github.io/is_analysis_pages/你的文件.html
     - 设置方法见下图：
     ![](./github_pages.jpg)
-    - 老师设计的样例参见 https://zwdcdu.github.io/is_analysis/test5/ui/start.html
 
 - RESTFUl API应该符合界面的设计。一个界面可以包含多个API接口。
 
@@ -49,6 +48,8 @@ pic1.png
 
 - 你的实验内容提交成功后，可以直接访问https://github.com/<b>zhang</b>/is_analysis/tree/master/test5
 查看你编写的实验文档。其中zhang是你的gitHub用户名。
+- 特别注意，你的设计样例必须转换为Pages，在实验文档中写明一个在网上直接查看设计原型的网址，比如https://你的用户名.github.io/.../你的文件.html。
+老师用axure设计的样例参见: https://zwdcdu.github.io/is_analysis/test5/ui/start.html
 
 - 请在2020-04-27之前提交，过时扣分。
 
