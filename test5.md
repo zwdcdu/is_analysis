@@ -25,7 +25,14 @@
 
 - 界面设计应当清晰，直观，符合人体感观。
 
-- 创建一个公有资料库**is_analysis_pages**,在其中存入UI设计的Html文件，通过超链接访问这些文件。
+- 创建一个公有资料库**is_analysis_pages**,将is_analysis_pages设置为Pages，
+    - 方法是：settings-->GitHub Pages，Source选择master branch或者/docs目录。
+    - 在is_analysis_pages根目录或者is_analysis_pages/docs目录存入UI设计的Html文件，通过超链接访问这些文件。
+    - https://你的用户名.github.io/is_analysis_pages/你的文件.html
+    - 或者https://你的用户名.github.io/is_analysis_pages/你的文件.html
+    - 设置方法见下图：
+    ![](./github_pages.jpg)
+    - 老师设计的样例参见 https://zwdcdu.github.io/is_analysis/test5/ui/start.html
 
 - RESTFUl API应该符合界面的设计。一个界面可以包含多个API接口。
 
