@@ -58,6 +58,7 @@ pic1.png
 - AXURE界面设计工具参见： https://www.axure.com/
 - RESTful API 设计指南参见：http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 - RESTful API 设计样例参见：http://os.opensns.cn/book/index/read/id/5.html
+- REST API v3： https://developer.github.com/v3/
 - 获得北京天气预报的API: https://www.sojson.com/open/api/weather/json.shtml?city=北京
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis
