@@ -21,10 +21,10 @@
  
 - ### [实验5：图书管理系统数据库设计与界面设计](./test5.md)
 
-## 实验6：期末考查说明
+## 实验6：期末考查说明(./test6.md)
         
 ## 搭建文档编写环境：
-- 编辑器: JetBrains，VS Code等
+- 编辑器: Idea,JetBrains，VS Code等
 - IDEA插件: markdown 和 plantuml
 - 单独安装: git 和 graphviz
 

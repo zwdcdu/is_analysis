@@ -24,7 +24,7 @@
     - 对于PlantUML图，文档中只需要直接显示图片，不需要直接出现PlantUML源码，但需要提供链接，链接中能显示PlantUML源码。
     - 文档提交目录：期末考核的所有文档均在目录test6中。
     - 文档编写参照实验2至实验5的要求。
-    - 将以上文档再组合成一个Word类型的最终文档[design.docx](./test6/design.docx)，该文件和README.md放在一个目录中。在design.docx中也应该包括目录与模块之间跳转。**design.docx必须打印出来上交给老师**。
+    - 将以上文档再组合成一个Word类型的最终文档[design.docx](./test6/design.docx)，该文件和README.md放在一个目录中。在design.docx中也应该包括目录与模块之间跳转。**design.doc不要打印**。
 - 注意事项
     - 原则上，用例图只有一个，类图只有一个
     - 原则上，顺序图应该是每个用例一个，用于描述用例的业务流程
