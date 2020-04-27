@@ -23,6 +23,7 @@
 
 ## 实验6：期末考查
 - ### [考查说明](./test6.md)
+- ### 老师做的<b>基于GitHub的实验管理平台</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test6
 - ### 界面设计参见：https://zwdcdu.github.io/is_analysis/test6/ui/index.html
         
 ## 搭建文档编写环境：
