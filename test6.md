@@ -24,7 +24,7 @@
     - 对于PlantUML图，文档中只需要直接显示图片，不需要直接出现PlantUML源码，但需要提供链接，链接中能显示PlantUML源码。
     - 文档提交目录：期末考核的所有文档均在目录test6中。
     - 文档编写参照实验2至实验5的要求。
-    - 将以上文档再组合成一个Word类型的最终文档[design.docx](./test6/design.docx)，该文件和README.md放在一个目录中。在design.docx中也应该包括目录与模块之间跳转。**design.doc不要打印**。
+    - 将以上文档再组合成一个Word类型的最终文档[design.docx](./test6/design.docx)，该文件和README.md放在一个目录中。在design.docx中也应该包括目录与模块之间跳转。**design.docx不要打印**。
 - 注意事项
     - 原则上，用例图只有一个，类图只有一个
     - 原则上，顺序图应该是每个用例一个，用于描述用例的业务流程
@@ -71,3 +71,4 @@ pic1.png
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
 - 老师的教学资源：https://github.com/zwdcdu/is_analysis
 - 老师做的<b>基于GitHub的实验管理平台</b>参考：https://github.com/zwdcdu/is_analysis/tree/master/test6
+- 老师做的界面设计参见：https://zwdcdu.github.io/is_analysis/test6/ui/index.html
