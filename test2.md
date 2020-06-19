@@ -35,6 +35,12 @@ usecase3_flow.jpg
 
 - 请在2020-03-31之前提交，过时扣分。
 
+<b>评分标准</b>
+- 文档内容详实、规范，美观大方。（总分20分）
+- PlantUML语法正确。（总分20分）
+- 用例划分合理（总分30分）
+- 用例之间的关系设计合理（总分30分）
+
 <b>参考</b>
 
 - 绘制方法参考[PlantUML标准](http://plantuml.com/use-case-diagram)文件的usecase标准

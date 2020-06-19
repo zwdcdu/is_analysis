@@ -34,6 +34,11 @@ sequence2.png
 
 - 请在2020-04-14之前提交，过时扣分。
 
+<b>评分标准</b>
+- 文档内容详实、规范，美观大方。（总分20分）
+- PlantUML语法正确。（总分20分）
+- 顺序图的绘制合理，正确（总分60分）
+
 <b>参考</b>
 
 - 顺序图（也叫时序图）的绘制方法参考[PlantUML标准](http://plantuml.com/sequence-diagram)文件的sequence-diagram标准

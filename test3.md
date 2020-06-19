@@ -45,6 +45,11 @@ object2.png
 
 - 请在2020-04-6之前提交，过时扣分。
 
+<b>评分标准</b>
+- 文档内容详实、规范，美观大方。（总分20分）
+- PlantUML语法正确。（总分20分）
+- 类的划分和对象定义合理，正确（总分60分）
+
 <b>参考</b>
 
 - 类图的绘制方法参考[PlantUML标准](http://plantuml.com/class-diagram)文件的class-diagram标准

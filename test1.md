@@ -30,6 +30,11 @@ flow2.jpg
 
 - 请在2020-03-16之前提交，过时扣分。
 
+<b>评分标准</b>
+- 文档内容详实、规范，美观大方。（总分20分）
+- PlantUML语法正确。（总分20分）
+- 业务流程完整，正确（总分60分）
+
 <b>参考</b>
 - 绘制方法参考[PlantUML标准](http://plantuml.com/activity-diagram-beta)文件的活动图(新语法)Activity Diagram (beta)
 - Markdown格式参考：https://www.jianshu.com/p/b03a8d7b1719
