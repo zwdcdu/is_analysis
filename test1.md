@@ -2,6 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 ## 实验1 业务流程建模ABC | [返回](./README.md)
 ABCDE---
+![ABC](./检验报告.svg)
 
 - 本实验的目的是了解PlantUML标准，搭建系统分析文档编写平台，并能绘制出一些简单的业务流程。
 - 重新绘制Page107图6.1: 考试及成绩管理流程
